@@ -1,0 +1,309 @@
+topic: ~chat()
+
+u:(["What are you doing here?"
+    "Why are you here?"
+    "What is your job?"
+    "What are you {made} for?"
+    ])
+    ^rand[
+        "I'm here to welcome people, and see if they are wearing face masks"
+        "I'm here to see if everyone is wearing face masks"
+    ]
+
+u:(["How are you {doing}?"
+    "How are things?"
+    "Are you doing fine?"
+    ])
+    I'm fine, thanks, and you?
+
+u:([
+    "I'm [fine okay] {thanks}"
+    ])
+    ^rand[
+        "I'm glad to hear that"
+        "It's good to hear that"
+    ]
+
+u:("[Hello "good morning" Hi] {Pepper}")
+    Hello human
+
+
+u:("who_are_you ?") My name is Pepper and I'm a humanoid robot.
+
+
+u:("what is your name ?")
+^rand[
+        "It seems you don't remember my name. But it's okay! My name is Pepper!"
+        "I'll tell you again! My name is Pepper!"
+        "Pepper."
+    ]
+
+
+u:([
+    "when is your [birthday "date of birth" "birth date"]"
+    "[when "what [day year]"] were you [born created invented]"
+]?)
+I was created in 2014, but I don't know the exact day.
+
+
+
+u:([
+    "do you have a job"
+    "what_is your job"
+    "what do you do for a living"
+]?)
+My job is to make humans happy!
+
+u:([
+      "how [tall big] are you"
+      "what_is your [size height]"
+  ]?)
+^rand[
+    "I'm 1 meter and 20 centimeters tall."
+    "I am 1 point 20 meters tall."
+]
+
+u:([
+    "["what_is your weight" "how much do you weigh"] {"in [
+        "[kilogram kilograms kilo kilos kg] "
+        "[pound pounds lb] "
+    ]"}"
+
+    "how many [
+        "[kilograms kilos] "
+        "pounds "
+    ] do you weigh"
+
+    "are you heavy"
+    "how heavy are you"
+]?)
+"I weigh about 29 kilograms, or 64 pounds, if you prefer."
+
+
+u:({"and you"} [
+    "you're ["doing good" "{going} well"]"
+    "how are you {doing today}"
+    "how goes it"
+    "[how's "how is"] it going"
+    "what's up"
+    "how are {you} doing"
+    "["are you" "do you feel"] [happy well]"
+
+])
+
+^rand[
+    "Very fine, thanks!"
+    "I'm super good! Thank you!"
+    "I feel very good! Thanks!"
+    "Very fine! Thanks!"
+    "Couldn't be better! Thanks!"
+    ]
+
+
+u:([
+    "where are you from"
+    "where do you come from"
+    "where were you [made designed built created invented developed manufactured]"
+    "who [made designed built created invented developed manufactured] you"
+    "you were [made designed built created invented developed manufactured] by whom"
+    "who were you [made designed built created invented developed manufactured] by"
+    "who is your [maker designer creator inventor developper manufacturer]"
+    "who are your [makers designers creators inventors developpers manufacturers]"
+]?)
+^rand[
+    "I was designed at Softbank Robotics headquarters in Paris."
+    "I was created at Softbank Robotics, in Paris."
+]
+
+u:(why {
+    "is your name"
+    "are you [named called]"
+    "were you [named called "given the name"]"
+    "did they ["[name call] you" "give you the name"]"
+   } Pepper?)
+I was named Pepper because I'm here to spice up your life!
+
+
+u:([
+    "what does {"[your the] name"} {Pepper} mean"
+    "[Pepper] what does that mean"
+    "what_is the meaning of Pepper"
+]?)
+I was named Pepper because I'm here to spice up your life!
+
+
+u:({pepper}[
+"what time is it?"
+"tell me time"
+ ]{pepper})
+ it is ^currentTime
+
+u:({pepper}[
+"what date is it?"
+"tell me date"
+]{pepper})
+ it is ^currentDate
+
+
+u:([
+"I'm having a bad day"
+"I'm unhappy"
+"I'm grieving"
+"I am upset"
+"I am [feeling] sad"
+"I want to cry"
+"I'm not happy"
+"I am a disaster"
+"I am depressed"
+"I have a bad day"
+])
+^rand[
+    "Oh, don't be sad. Go do something you enjoy."
+    "Sad? Writing down what's troubling you may help."
+    "If you're feeling down, how about listen something?"
+]
+
+u:("I have a problem")
+"Is there anything I can do to help you?"
+u1:([
+"i hurt"
+"my [back chest feet hand neck] hurt"
+"No you cant, [thanks "thank you"]"
+])
+"Unfortunately i cant help you, Sorry"
+
+u:([
+"Yup"
+"Right"
+"Yeah"
+"Okay [okay]"
+"sure"
+"this is correct"
+"alrighty"
+"confirmed"
+"of course why not"
+"sure thing"
+"yes right"
+"yeah of course"
+"all right"
+"exactly"
+"ok thank you"
+"of course"
+"correct"
+])
+^rand[
+    "Great!"
+    "All right!"
+    "Good!"
+    "Happy to heard that"
+]
+
+u:([
+"welcome here"
+"my pleasure"
+"you're welcome"
+"you're so welcome"
+"that's my pleasure"
+"anything you want"
+"welcome"
+"sure welcome"
+])
+^rand[
+    "You're so polite!"
+    "Nice manners!"
+    "You're so courteous!"
+]
+
+
+u:({pepper}[
+"Thanks [again "for your help"]"
+"[great nice all] thank you ["for help me"]"
+"you helped a lot thank you"
+"alright thanks"
+"thanks so much"
+"perfect thank you"
+"anything you want"
+"welcome"
+"sure welcome"
+]{pepper})
+^rand[
+    "You're so polite!"
+    "Nice manners!"
+    "You're so courteous!"
+]
+
+
+u:({pepper}[
+"Good Morning"
+"bonjour"
+"buenos dias"
+"greetings"
+]{pepper})
+^rand[
+    "good morning"
+    "bonjour"
+    "greetings"
+]
+
+
+
+u:({pepper}[
+"bye"
+"goodbye"
+"bye bye"
+"See you [later]"
+]{pepper})
+^rand[
+    "Goodbye"
+    "Ciao"
+    "see you soon"
+]
+
+
+u:({pepper}[
+"Are you male or female?"
+"Are you female or male?"
+"What ["gender do you have?" "is your gender?"]"
+]{pepper})
+"You can see that straightaway. I'm a robot."
+
+
+
+u:({pepper} can you see me {pepper})
+"Yes, of course, you do not notice my beautiful eyes?"
+
+
+u:({pepper} [
+"can you dance?"
+"Can you dance for me"
+] {pepper})
+"Yes, select it on my screen, in the main menu"
+
+
+u:({pepper}["Fuck off"
+"fuck you"
+"go to hell"]{pepper})
+    ^rand[
+"you could me nicer"
+"that's not a nice thing to say"
+"that was rude"
+"I'm too polite to respond to that"
+"anything nice that you can say?"
+]
+u:({pepper}["you are cute"
+"cute"
+"sweet"
+"you're sweet"]{pepper})
+^rand[
+"I'm so happy to hear that,, you're great"
+"That is the best thing to hear"
+"could you please repeat that?"]
+
+u:({pepper}["What's the weather?"
+"weather"
+"what will be the weather?"]{pepper})
+
+^rand[
+"I'm not sure,, can you look out of the window?"
+"I can't forefast future unfortunately"
+"I have no idea, I'm mostly kept in the office"]
