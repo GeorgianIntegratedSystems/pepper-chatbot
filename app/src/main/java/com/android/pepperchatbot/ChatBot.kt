@@ -89,4 +89,13 @@ class ChatBot(val qiContext: QiContext) {
             )
         }
     }
+
+    fun serExecutor(executeName: String) {
+        val executors = hashMapOf<String, QiChatExecutor>()
+        executors[executeName] = MyQiChatExecutor(qiContext)
+        // Set the executors to the qiChatbot
+        qiChatbot?.executors = executors
+    }
+
 }
+
