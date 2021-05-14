@@ -1,5 +1,13 @@
 topic: ~chat()
 
+proposal: %read  u:(say) say ^first["My robot is $var" "There is no value, type one"]
+
+proposal: %mimic_proposal
+    u: (dog) OK, I've reached the dog bookmark %DOG_MIMIC
+    u: (elephant) OK, I've reached the elephant bookmark %ELEPHANT_MIMIC
+
+u: (raise your _[right left] arm) I raise my $1 arm ^execute(myExecutor, $1, constantParameter2) then I resume talking
+
 u:(["What are you doing here?"
     "Why are you here?"
     "What is your job?"

@@ -18,18 +18,10 @@ class ChatBot(val qiContext: QiContext) {
     private var sayFuture: Future<Void>? = null
     private var chatFuture: Future<Void>? = null
     var qiChatbot: QiChatbot? = null
+    var topic: Topic? = null
+    var chat: Chat? = null
 
-
-    fun buildChatBookmark(topicAssetName: String) {
-        val topic = TopicBuilder.with(qiContext)
-            .withAsset(topicAssetName)
-            .build()
-
-        qiChatbot = QiChatbotBuilder.with(qiContext)
-            .withTopic(topic).build()
-    }
-
-    fun jumpToBookmark(bookmark: Bookmark?) {
+    fun jumpToBookmark(bookmark: Bookmark?): QiChatbot {
         bookmark?.let {
             qiChatbot!!.async()?.goToBookmark(
                 it,
@@ -37,20 +29,21 @@ class ChatBot(val qiContext: QiContext) {
                 AutonomousReactionValidity.DELAYABLE
             )
         }
+        return qiChatbot!!
     }
 
     fun buildChat(topicAssetName: String): Chat {
 
-        val topic = TopicBuilder.with(qiContext)
+        topic = TopicBuilder.with(qiContext)
             .withAsset(topicAssetName)
             .build()
 
-        val qiChatbot = QiChatbotBuilder.with(qiContext)
+        qiChatbot = QiChatbotBuilder.with(qiContext)
             .withTopic(topic)
             .withLocale(language)
             .build()
 
-        val chat = ChatBuilder.with(qiContext)
+        chat = ChatBuilder.with(qiContext)
             .withChatbot(qiChatbot)
             .withLocale(language)
             .build()
@@ -59,24 +52,27 @@ class ChatBot(val qiContext: QiContext) {
         return chat!!
     }
 
-    fun runChatBot(chat: Chat) {
-        chatFuture = chat.async().run()
-    }
 
-    fun stopChatBot() {
-        chatFuture!!.requestCancellation()
-    }
-
-    fun buildSay(sayText: String) {
+    fun buildSay(sayText: String): Say? {
         say = SayBuilder.with(qiContext)
             .withText(sayText)
             .build()
+        return say
     }
 
-    fun runSay() {
-        if (say != null) {
-            sayFuture = say!!.async().run()
-        }
+    fun runChatBot() {
+        chatFuture = chat?.async()?.run()
+    }
+
+    fun stopChatBot() {
+        if (chatFuture != null)
+            chatFuture!!.requestCancellation()
+    }
+
+
+    fun runSay(say: Say?) {
+        if (say != null)
+            sayFuture = say.async().run()
     }
 
 
